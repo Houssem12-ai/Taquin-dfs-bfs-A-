@@ -1,11 +1,19 @@
+# Author: idrisso4
+# Main file
+
+
+# Importing libraries
 from tkinter import *
+import time
 from Solver import Solver
 from Solver import Node
 from Solver import Puzzle
-import time
 
 global puzzl
+global Lph , LAff
 
+
+# Defining interface parameters
 fenetre = Tk()
 
 board = [[1,2,3],[4,8,5],[7,0,6]]
@@ -13,12 +21,7 @@ board = [[1,2,3],[4,8,5],[7,0,6]]
 photos=[]
 for i in range(0,10):
 	photos.append(PhotoImage(file="./images/"+str(i)+".png"))
-
-global Lph , LAff
-
 Lph = photos[0:9]
-
-
 
 can=Canvas( width=180*3,height=180*3,bg='white')
 can.pack( side =TOP, padx =20, pady =20)
@@ -28,6 +31,7 @@ fenetre.title (' Taquin resolution IA')
 puzzl = Puzzle(board,can,Lph)
 
 
+# Defining functions
 def solv_larg():
 	s =Solver(puzzl,fenetre)
 	s.solve_Larg()
@@ -52,16 +56,16 @@ for row in board:
 menubar = Menu(fenetre)
 
 menu1 = Menu(menubar, tearoff=0)
-menu1.add_command(label="Recherche en largeur", command=solv_larg)
-menu1.add_command(label="Recherche en longueur", command=solv_long)
+menu1.add_command(label="Search in width (BFS)", command=solv_larg)
+menu1.add_command(label="Search in length (DFS)", command=solv_long)
 menu1.add_command(label="A*", command=solve_a_étoile)
-menubar.add_cascade(label="Résoudre", menu=menu1)
+menubar.add_cascade(label="Solve", menu=menu1)
 fenetre.config(menu=menubar)
 
 
 
-Button(text='Melanger',command=mel).pack(side=LEFT)
-Button(text='Quitter',command=fenetre.quit).pack(side=RIGHT)
+Button(text='Mix',command=mel).pack(side=LEFT)
+Button(text='Exit',command=fenetre.quit).pack(side=RIGHT)
 
 
 for k in range(len(Lph)) :
