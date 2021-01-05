@@ -6,4 +6,5 @@ The heuristic chosen in A* is the number of wrong values.
 
 ✅ Keywords: Python, Numpy, Tkinter
 
+
 ![](interface.jpg)
