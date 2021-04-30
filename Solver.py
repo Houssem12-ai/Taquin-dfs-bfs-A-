@@ -5,8 +5,8 @@ import time
 from tkinter import *
 
 
-class Node:
 
+class Node:
     def __init__(self, puzzle, parent=None, action=None, cout=None, heuristique=None):
         self.puzzle = puzzle
         self.parent = parent
